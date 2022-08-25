@@ -50,7 +50,11 @@ route::get('/',[logincontroller::class, 'login']);
 route::post('/loginp',[logincontroller::class, 'loginp']);
 
 route::get('/dashboard',[dashboardcontroller::class,'home']);
-route::get('/post',[dashboardcontroller::class,'post']);
+route::post('/post',[dashboardcontroller::class,'post']);
+
+route::get('/comment',[dashboardcontroller::class,'comment']);
+
+
 
 
 // Route::middleware('auth')->group(function(){

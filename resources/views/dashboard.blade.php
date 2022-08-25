@@ -19,16 +19,25 @@
             </div>
         </div>
         <div class="isi">
-            @foreach($posts as $post) 
+            <form action="/post" method="post">
+                @csrf
+                <label>Create Post</label> <br>
+                <textarea name="content" cols="100" rows="10"></textarea> <br>
+                <button type="submit">Post!</button>
+            </form>
+
+            @foreach ($posts as $post)
             @csrf
-            <tr>
-                <td>{{$post->author}}</td>
-                <td>{{$post->content}}</td>
-            </tr>  
-            @endforeach     
+            <div style="font-size:10px" class="containpos">
+            <h2 style="color:black">{{$post->authorObj->username}}</h2>
+            <p class="kotak">{{$post->content}}</p>
+            <button onclick="location.href='comment'">comment</button>
+            </div>
+
+            @endforeach
+            </div>
         </div>
             
-        </div>
     </div>
 </body>
-</html>
+</html

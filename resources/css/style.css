@@ -42,4 +42,24 @@ body{
     min-height: 100px;
 }
 
+.containpos{
+    margin-top: 20px;
+}
+
+.kotak{
+    font-size: 13px;
+    width: 100%;
+    padding: 5px 10px 5px 5px;
+    min-height: 50px;
+    border: 2px solid black;
+}
+
+.isian{
+    width: 80%;
+    height: 20px;
+}
+.containcom{
+    margin-top: 20px;
+}
+
 
