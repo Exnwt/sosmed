@@ -16,5 +16,5 @@ class Post extends Model
 
 
     public function authorObj() { return $this->belongsTo(User::class, 'author','id'); }
-    public function comments() { return $this->hasMany(Comment::class, 'id_post', 'id'); }
+    public function comments() { return $this->hasMany(Comment::class, 'post_id', 'id'); }
 }

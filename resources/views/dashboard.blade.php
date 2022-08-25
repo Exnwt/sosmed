@@ -31,7 +31,7 @@
             <div style="font-size:10px" class="containpos">
             <h2 style="color:black">{{$post->authorObj->username}}</h2>
             <p class="kotak">{{$post->content}}</p>
-            <button onclick="location.href='comment'">comment</button>
+            <button onclick="location.href='{{'/comment/'.$post->id}}'">comment</button>
             </div>
 
             @endforeach

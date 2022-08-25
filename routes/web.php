@@ -52,8 +52,9 @@ route::post('/loginp',[logincontroller::class, 'loginp']);
 route::get('/dashboard',[dashboardcontroller::class,'home']);
 route::post('/post',[dashboardcontroller::class,'post']);
 
-route::get('/comment',[dashboardcontroller::class,'comment']);
+Route::get('/comment/{id}', [dashboardcontroller::class, 'commentid']);
 
+route::post('/savcom/{id}',[dashboardcontroller::class,'savcom']);
 
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\post;
 use App\Models\Users;
+use App\Models\Comment;
 use Auth;
 
 class dashboardcontroller extends Controller
@@ -13,7 +14,6 @@ class dashboardcontroller extends Controller
         $posts = Post::with('authorObj')->get();
 
         return view('/dashboard')->with('posts',$posts);
-
     }
 
     public function post(Request $request){
@@ -28,18 +28,27 @@ class dashboardcontroller extends Controller
     
     public function comment()
     {
+        // $posts = Post::with('comment')->();
         return view('comment');
     }
 
-    public function savcom(Request $request)
+    public function commentid($id)
     {
-        $comms = Post::with('comments')->get();
-        
-        $users = new Users;
-        $users->username = $request->username;
-        $users->Password = bcrypt($request->password);
-        $users->save();
+        $post = Post::where('id',$id)->with('comments.userm')->first();
 
-        return redirect('/');
+        return view('comment')->with('post',$post);;
+    }
+
+
+    public function savcom(Request $request,$id)
+    {
+        $comms = new Comment;
+        $comms->user_id =Auth::user()->id;
+        $comms->post_id = $id;
+        $comms->body = $request->comss;
+        $comms->save();
+
+        return redirect('comment/'.$id);
     } 
 }
+    
