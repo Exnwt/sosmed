@@ -10,6 +10,7 @@
 </head>
 <div>
 <body>
+        <button style="width:5%" onclick="location.href='/dashboard'">Home</button>
 
             <div style="font-size:10px" class="containpos">
             <h2 style="color:black">{{$post->authorObj->username}}</h2>
@@ -20,23 +21,21 @@
             @csrf
             <input type="text" name="comss" class="isian">
             <button style="width:5%" name="body" type="submit">enter</button>
-            <button style="width:5%" onclick="location.href='dashboard'">Home</button>
         </form>
     </div>  
     @foreach($post->comments as $comment)
     @csrf 
-    <form action="/commentid">
+
     <div class="containcom">
         <h3 style="color:black">{{$comment->userm->username}}</h3>
         <p class="kotak">{{$comment->body}}</p>      
     </div>
-    <form action="/commentid">
+
         @if(Auth::user()->id ==$comment->user_id)
-            <button>delete</button>
+            <button onclick="location.href='/commentdel/{{$comment->id}}'">delete</button>
         
         @endif
-    </form>
-    </form>
+
     @endforeach
 
 

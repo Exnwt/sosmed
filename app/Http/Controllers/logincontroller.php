@@ -42,7 +42,7 @@ class logincontroller extends Controller
             $users->Password = bcrypt($request->password);
             $users->save();
 
-            return redirect('/');
+            return redirect('/login');
         } 
         
         public function login(){
@@ -53,7 +53,7 @@ class logincontroller extends Controller
             if(Auth::attempt($request->only('username','password'))){
                 Return redirect('/dashboard');
         }
-        return redirect('/');
+        return redirect('/login');
         }
 }   
 

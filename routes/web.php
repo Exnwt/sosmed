@@ -46,7 +46,7 @@ Route::get('/greeting', function () {
 
 // })
 
-route::get('/',[logincontroller::class, 'login']);
+route::get('/login',[logincontroller::class, 'login']);
 route::post('/loginp',[logincontroller::class, 'loginp']);
 
 route::get('/dashboard',[dashboardcontroller::class,'home']);
@@ -56,7 +56,7 @@ Route::get('/comment/{id}', [dashboardcontroller::class, 'commentid']);
 
 route::post('/savcom/{id}',[dashboardcontroller::class,'savcom']);
 
-route::get('/comment/{id}',[dashboardcontroller::class,'dele']);
+route::get('/commentdel/{id}',[dashboardcontroller::class,'dele']);
 
 
 

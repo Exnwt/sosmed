@@ -52,8 +52,10 @@ class dashboardcontroller extends Controller
         return redirect('comment/'.$id);
     }
 
-    public function dele(){
-        
+    public function dele($id){
+        $ded = Comment::find($id);
+        $ded->delete();
+        return redirect()->back();
     }
 
 }

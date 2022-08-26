@@ -11,14 +11,14 @@
     <div class="container">
         <div class="top">
             <div class="kosong"></div>
-            <form action="">
+
                 <div class="nama">
-                    <tr>
-                        <td><h2>{{\Auth::user()->username}}</h2></td>
-                        <td><button onclick="location.href ='/'";>LogOut</button></td>
-                    </tr>
+                <tr>
+                    <td><h2>{{\Auth::user()->username}}</h2></td>
+                    <button onclick="location.href ='/login'">LogOut</button>
+                </tr>
                 </div>
-            </form>
+
         </div>
         <div class="isi">
             <form action="/post" method="post">
