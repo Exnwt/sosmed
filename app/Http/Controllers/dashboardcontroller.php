@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\post;
 use App\Models\Users;
 use App\Models\Comment;
+use App\Models\User;
 use Auth;
 
 class dashboardcontroller extends Controller
 {
     public function home(){
         $posts = Post::with('authorObj')->get();
-
+    
         return view('/dashboard')->with('posts',$posts);
     }
 
@@ -49,6 +50,11 @@ class dashboardcontroller extends Controller
         $comms->save();
 
         return redirect('comment/'.$id);
-    } 
+    }
+
+    public function dele(){
+        
+    }
+
 }
     

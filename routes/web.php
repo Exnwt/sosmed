@@ -56,6 +56,8 @@ Route::get('/comment/{id}', [dashboardcontroller::class, 'commentid']);
 
 route::post('/savcom/{id}',[dashboardcontroller::class,'savcom']);
 
+route::get('/comment/{id}',[dashboardcontroller::class,'dele']);
+
 
 
 // Route::middleware('auth')->group(function(){

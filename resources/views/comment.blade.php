@@ -14,7 +14,6 @@
             <div style="font-size:10px" class="containpos">
             <h2 style="color:black">{{$post->authorObj->username}}</h2>
             <p class="kotak">{{$post->content}}</p>
-            <button onclick="location.href='comment'">comment</button>
             </div>
 
         <form action="/savcom/{{$post->id}}" method="post">
@@ -31,6 +30,12 @@
         <h3 style="color:black">{{$comment->userm->username}}</h3>
         <p class="kotak">{{$comment->body}}</p>      
     </div>
+    <form action="/commentid">
+        @if(Auth::user()->id ==$comment->user_id)
+            <button>delete</button>
+        
+        @endif
+    </form>
     </form>
     @endforeach
 
