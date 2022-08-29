@@ -58,17 +58,16 @@ route::post('/loginp',[logincontroller::class, 'loginp']);
 
 // route::get('/commentdel/{id}',[dashboardcontroller::class,'dele']);
 
-route::middleware(cekbanned::class)->namespace('\App\Http\Controllers\Api')->group(function(){
+// route::middleware(cekbanned::class)->namespace('\App\Http\Controllers\Api')->group(function(){
 
 route::get('/dashboard',[dashboardcontroller::class,'home']);
-route::post('/post',[dashboardcontroller::class,'post']);
-
-Route::get('/comment/{id}', [dashboardcontroller::class, 'commentid']);
+route::post('/post',[dashboardcontroller::class,'post'])->middleware(['cekbanned']);
+Route::get('/comment/{id}', [dashboardcontroller::class, 'commentid'])->middleware(['cekbanned']);
 
 route::post('/savcom/{id}',[dashboardcontroller::class,'savcom']);
 
 route::get('/commentdel/{id}',[dashboardcontroller::class,'dele']);
-});
+// });
 
 
 // Route::middleware('auth')->group(function(){

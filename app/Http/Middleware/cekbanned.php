@@ -20,6 +20,6 @@ class cekbanned
             return $next($request);
         }
 
-        return response()->json('Account '. auth()->user()->username . ' has been banned');
+        return response('Account '. auth()->user()->username . ' has been banned');
     }
 }
