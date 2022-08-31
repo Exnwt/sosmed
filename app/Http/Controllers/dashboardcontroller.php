@@ -22,7 +22,6 @@ class dashboardcontroller extends Controller
         $post->author= Auth::user()->id;
         $post->content = $request->content;
         $post->save();
-
         return redirect('/dashboard');
     }
 
@@ -43,20 +42,28 @@ class dashboardcontroller extends Controller
 
     public function savcom(Request $request,$id)
     {
+
         $comms = new Comment;
         $comms->user_id =Auth::user()->id;
         $comms->post_id = $id;
         $comms->body = $request->comss;
         $comms->save();
 
-        return redirect('comment/'.$id);
-    }
+        $data = [
+            'id'=>$comms->id,
+            'user_id'=>auth::user()->username,
+            'post_id'=> $comms->post_id,
+            'body'=>$comms->body,
+        ];
+        return response()->json($data, 200);
+    }   
 
     public function dele($id){
         $ded = Comment::find($id);
         $ded->delete();
         return redirect()->back();
     }
+
 
 }
     
